@@ -25,5 +25,6 @@ def main():
         t = threading.Thread(target=scan_port, args=(target, port))
         t.start()
 
+# This line ensures the script runs only when executed directly, not when imported
 if __name__ == "__main__":
     main()
