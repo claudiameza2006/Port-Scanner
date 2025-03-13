@@ -1,30 +1,30 @@
-import socket
-import threading
+# 🔎 Port Scanner in Python (Educational)
 
-# Function to scan a specific port
-def scan_port(ip, port):
-    try:
-        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(1)
-        result = sock.connect_ex((ip, port))
-        if result == 0:
-            print(f"[+] Open port: {port}")
-        sock.close()
-    except Exception as e:
-        print(f"[-] Error with port {port}: {e}")
+This project is a basic port scanner created for educational purposes. It simulates the reconnaissance technique used by attackers and defenders to identify open services on a network.
 
-# Main entry point of the script
-def main():
-    target = input("Enter the IP or domain to scan: ")
-    start_port = int(input("Start port: "))
-    end_port = int(input("End port: "))
+## 🎯 Objective
 
-    print(f"\nScanning {target} from port {start_port} to {end_port}...\n")
+To explore the "Port Scanning" technique in the reconnaissance phase of offensive and defensive cybersecurity.
 
-    for port in range(start_port, end_port + 1):
-        t = threading.Thread(target=scan_port, args=(target, port))
-        t.start()
+## 🚀 How it works?
 
-# This line ensures the script runs only when executed directly, not when imported
-if __name__ == "__main__":
-    main()
+- The script asks for an IP and a range of ports.
+- It attempts to connect to each port using sockets.
+- If a port is open, it reports it to the screen.
+- It uses threads to speed up the process.
+
+## 📚 Concepts Applied
+
+- Python (socket, threading)
+- Networking and TCP ports
+- Offensive/defensive security
+- MITRE ATT&CK: Technique T1046 (Network Service Discovery)
+
+## ⚠️ Important
+
+> This project is **for educational use only** and should be tested in controlled environments (e.g., localhost or your own network). **Do not use it to scan networks without authorization.**
+
+## ✍️ Author
+
+Claudia Meza  
+Computer Science student with a focus on Cybersecurity
